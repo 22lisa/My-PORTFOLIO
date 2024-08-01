@@ -1,0 +1,126 @@
+body{
+    background-color: #f9f9f9;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1{
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px; 
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+#search-input{
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    border-radius: 5px; /*rounded borders*/
+    font-size: 18px;
+    color: #333;
+}
+
+#search-button{
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    font-size: 18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color .3s ease-in-out;
+}
+
+#search-button:hover{
+    background-color: #3e8e41;
+}
+
+.search-results{
+    display: flex;
+    flex-wrap: wrap; /*will adjust based on the size of the screen*/
+    justify-content: space-between; /*to add space between the images*/
+    max-width: 1200px;
+    margin: 0 auto; /*bringing the images to the center '0' is for top and bottom and 'auto' is for left and right */
+    padding: 20px;
+}
+
+.search-result{
+    margin-bottom: 60px;
+    width: 30%; /*width for a bigger screen and later will use media-queries to adjust the size for table, phone and smaller screeens*/
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2); /* 0 for x-axis and 0 for y-axis and 5px for blurness and rgba black for transperancy*/
+    overflow: hidden; /* to hide the extra edges*/
+    
+}
+
+.search-result:hover img{     /* adding effects to the image - when you hover over the image it will zoom it a little bit*/
+    transform: scale(1.05);       /* used 'transform' to change its size and then use 'scale' to enlarge the image to '1.05' */  */
+}
+
+.search-result img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform .3s ease-in-out;     /* 'transition' will add some animation to the image, and the transition we will be adding is to the top of the 'transform'*/
+}
+.search-result a{     /* targeting all the 'a' i.e. the anchor tags*/  
+    padding: 10px;
+    display:block;
+    color: #333;    /*color of the image text changed to black*/ 
+    text-decoration: none;
+    transition: background-color .3s ease-in-out;    
+}
+.search-result:hover a{
+    background-color: rgba(0, 0, 0, .1);  /* changed the backgroung color of the text to light grey when hovered upon*/
+}
+
+#show-more-button{
+    background-color: #008cba;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;      /* to enable it to move to the center  */
+    margin: 20px auto;      /*will add same amount of margin to the left and right*/
+    text-align: center;
+    border-radius: 5px;  /* for rounded corners*/
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    display: none;
+}
+
+#show-more-button:hover{
+    background-color: #0077b5;
+}
+/* sizing for a Tablet Screen */
+@media screen and (max-width: 768px) {
+    .search-result{
+        width: 45%;
+    }    
+}
+/* sizing for a Mobile Screen */
+@media screen and (max-width: 480px) {
+    .search-result{
+        width: 100%;
+    }
+    
+    form{
+        flex-direction: column;    /* the input box in the screen to display above the search button (in a column ) */
+        
+        #search-input{
+            margin-bottom: 20px;  /* to create space between search-input and the search button*/
+            width: 85%;    /*width of search-input box*/
+        }
+    }
+}
